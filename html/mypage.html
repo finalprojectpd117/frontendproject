@@ -1,0 +1,53 @@
+<!--마이 페이지-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <div>
+    <div class="mypage">
+        <ul><h2 class="title">마이페이지</h2></ul>
+        <ul>
+            아이디 : ${sessionScope.user.ins_id}
+        </ul>
+        <ul>
+            사고기록 : <button href="accidentlist.jsp">조회하기</button>
+        </ul>
+        <ul>
+            <br>
+            <br>
+            <br>
+        </ul>
+      <ul>
+        <button href="main.jsp">메인 메뉴</button>
+        <button href="login.jsp" onclick="logOut()">로그아웃</button>
+      </ul>
+    </div>
+
+    <script>
+      function logOut() {
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.open("GET", "logout", true);
+        xhttp.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded;charset=UTF-8"
+        );
+        xhttp.send();
+        alert("로그아웃 완료.");
+      }
+    </script>
+
+    <c:if test="${not empty message}">
+      <script type="text/javascript">
+        let msg = "<c:out value='${message}'/>";
+        (() => {
+          if (msg != "") {
+            alert(msg);
+          }
+        })();
+      </script>
+    </c:if>
+  </body>
+</html>

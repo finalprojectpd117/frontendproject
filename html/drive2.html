@@ -1,0 +1,92 @@
+<!-- 포즈구현은 하지않고 일정시간 운전 하면 알람이 뜨는 부분만 설계 script 부분 setTimeout 함수에서 시간 조절하며 테스트 해볼수 있음. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <style>
+      #container {
+        margin: 0pxauto;
+        width: 500px;
+        height: 375px;
+        border: 10px #333 solid;
+      }
+      #videoElement {
+        width: 500px;
+        height: 375px;
+        background-color: #666;
+      }
+      /*.hide {
+        display: none;
+      } 타이머 숨기기 기능*/
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <video autoplay="true" id="videoElement"></video>
+    </div>
+    <div>운전자 상태<br /></div>
+    <div>
+      <span class="timer drive-timer">00:00:00</span>
+      <br />
+      <input class="drive-timer_startBtn" type="button" value="주행 시작" />
+      <input class="drive-timer_stopBtn" type="button" value="주행 종료" />
+      <button href="main.jsp">메인 메뉴</button>
+    </div>
+    <script>
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+      const timer = document.querySelector(".drive-timer"),
+        startBtn = document.querySelector(".drive-timer_startBtn"),
+        stopBtn = document.querySelector(".drive-timer_stopBtn");
+
+      let TIME = 0;
+      let cron;
+
+      function startButton() {
+        updateTimer();
+        stopButton();
+        cron = setInterval(updateTimer, 1000);
+        timer.classList.add("hide");
+      }
+      function stopButton() {
+        clearInterval(cron);
+        timer.classList.remove("hide");
+      }
+
+      function updateTimer() {
+        const hours = Math.floor(TIME / 3600);
+        const checkMinutes = Math.floor(TIME / 60);
+        const seconds = TIME % 60;
+        const minutes = checkMinutes % 60;
+
+        timer.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes
+        }:${seconds < 10 ? `0${seconds}` : seconds}`;
+        TIME++;
+      }
+      startBtn.addEventListener(
+        "click",
+        startButton,
+        setTimeout(function () {
+          alert("운전을 한시간 이상 하셨습니다. 휴식을 권합니다.");
+        }, 4680000)
+        // 60000 => 57초 정도 후 알람이 울렸음.
+        // 70000 => 1분 7초 즉 67초 후 알람이 울렸음.
+        // 80000 => 1분 17초 즉 77초 후 알람이 울렸음
+      );
+      stopBtn.addEventListener("click", stopButton);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!--js 이용한 CSS 적용된 테스트 로그인-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="logo">서비스명</h1>
+      <div class="container">
+        <input type="text" placeholder="ID" id="id" class="account" />
+        <br />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+          class="account"
+        />
+        <p id="alert" class="account"></p>
+        <button id="login" class="account">로그인</button>
+        <button id="signup" class="account">회원가입</button>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>
