@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 메인 페이지 ${sessionScope.user.insid}-->
+    <div class="text">
+      <div class="first">남유민 님의 <strong>졸음운전 알림 횟수</strong>는</div>
+      <div class="second"><strong>${}번</strong> 입니다.</div>
+    </div>
+
+    <div style="text-align: center">
+      <img src="images/woman.png" alt="woman" width="217" height="240" />
+    </div>
+
+    <div class="video"><strong>&#124;</strong> Video</div>
+
+    <div class="youtube">
+      <iframe
+      class="one"
+        width="450"
+        height="205"
+        src="https://www.youtube.com/embed/QL3CWmQr0-Q?autoplay=0"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <iframe
+        class="two"
+        width="450"
+        height="205"
+        src="https://www.youtube.com/embed/iKxVffo4GSI?autoplay=0
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <iframe 
+        class="three"
+        width="450" 
+        height="205" 
+        src="https://www.youtube.com/embed/7Q2N7919o5o" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="notice"><strong>&#124;</strong> Notice</div>
+
+    <!-- 메뉴 버튼 -->
+    <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="drive.jsp">driver</a>
+      <a href="estimate.jsp">accudent</a>
+      <a href="mypage.jsp">page</a>
+</div>
+    <div id="main">
+      <button
+        style="font-size: 30px; cursor: pointer"
+        type="button"
+        class="menu_image"
+        id="img_menu"
+        onclick="openNav()"
+      >
+        <img src="images/menu.png" width="45" height="45" />
+      </button>
+    </div>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+</script>
+  </body>
+</html>
