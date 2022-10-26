@@ -1,0 +1,39 @@
+<!-- 사고 내역 페이지-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>사고</title>
+  </head>
+  <body>
+    <div class="acclist">
+      <h2>사고 내역</h2>
+      <table border="1" width="900">
+        <tr>
+          <th width="150">날짜</th>
+          <th width="150">부속1</th>
+          <th width="150">부속2</th>
+          <th width="150">부속3</th>
+          <th width="150">부속4</th>
+          <th width="150">부속총합</th>
+        </tr>
+
+        <c:forEach var="acc" items="${accList}">
+          <!-- 받아온 boardList 값을 "acc"에 넣고 반복 출력 -->
+          <tr>
+            <td>${acc.acc_date}</td>
+            <
+            <td>${acc.repair_price1}</td>
+            <td>${acc.repair_price2}</td>
+            <td>${acc.repair_price3}</td>
+            <td>${acc.repair_price4}</td>
+            <td>${acc.repair_sum}</td>
+          </tr>
+        </c:forEach>
+      </table>
+      <br />
+      <button href="main.jsp">메인 메뉴</button>
+    </div>
+  </body>
+</html>

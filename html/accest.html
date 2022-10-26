@@ -1,0 +1,32 @@
+<!-- 사고 견적 산출을 위한 사진 등록 페이지-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <form action="estimate.jsp" method="post" enctype="multipart/form-data">
+      <tr>
+        <td>정면왼쪽 대각선 <input type="file" name="profile" /></td>
+
+        <td>정면오른쪽 대각선 <input type="file" name="profile" /></td>
+      </tr>
+      <br />
+      <tr>
+        <td>
+          후면왼쪽 대각선
+          <input type="file" name="profile" />
+        </td>
+
+        <td>
+          후면오른쪽 대각선
+          <input type="file" name="profile" />
+        </td>
+      </tr>
+      <br />
+
+      <input type="submit" value="견적 확인" />
+    </form>
+    <button href="main.jsp">메인 메뉴</button>
+  </body>
+</html>

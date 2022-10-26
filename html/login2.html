@@ -1,0 +1,28 @@
+<!--jsp 이용한 틀만 잡힌 로그인-->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="login-box">
+      <h2 class="flux">Login</h2>
+      <form action="login" method="post">
+        <div class="user-box">
+          <label>ID</label>
+          <input type="text" name="id" required />
+        </div>
+        <div class="user-box">
+          <label>PW</label>
+          <input type="password" name="pw" required />
+        </div>
+        <button type="submit" id="btu" class="login">Login</button>
+        <button href="signup.jsp">회원가입</button>
+      </form>
+    </div>
+  </body>
+</html>
