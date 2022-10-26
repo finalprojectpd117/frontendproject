@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button
+        type="button"
+        class="btn_image"
+        id="img_btn"
+        onclick="history.back()"
+      >
+        <img src="images/back2.png" width="50" height="50" />
+      </button>
+    </div>
+    <div style="text-align: center">
+      <img src="images/dotice2.png" alt="My Logo" width="324" height="150" />
+    </div>
+    <div class="login-box">
+      <form action="login" method="post">
+        <div class="user-box">
+          <input type="text" placeholder="ID" name="insid" required />
+        </div>
+        <div class="user-box">
+          <input type="password" placeholder="PW" name="passwd" required />
+        </div>
+        <button type="submit" id="btu" class="login">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
