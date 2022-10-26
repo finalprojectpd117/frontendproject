@@ -49,14 +49,16 @@ input {
 .login:hover {
   background: #e8fcf9;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn_image {
   background-color: transparent !important;
   border: 0;
   position: absolute;
-  left: auto;
-  top: -140px;
+  left: 45px;
+  top: -120px;
+  cursor: pointer;
 }
 
 body {
