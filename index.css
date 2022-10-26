@@ -1,5 +1,5 @@
 img {
-  margin-top: 10%;
+  margin-top: 13%;
 }
 
 .btns {
@@ -23,6 +23,7 @@ img {
 .btn1:hover {
   background: #e8fcf9;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn2 {
@@ -43,4 +44,5 @@ img {
 .btn2:hover {
   background: #e8fcf9;
   text-decoration: none;
+  cursor: pointer;
 }
