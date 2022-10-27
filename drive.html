@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="drive.css" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button
+        type="button"
+        class="btn_image"
+        id="img_btn"
+        onclick="history.back()"
+      >
+        <img src="images/back1.png" width="80" height="80" />
+      </button>
+    </div>
+    <div class="title">운전자 주행</div>
+
+    <div class="text">
+      <div class="txt1">운전자 <strong>{id}님</strong>의 상태는</div>
+      <div class="txt2"><strong>{정상}</strong>입니다.</div>
+    </div>
+
+    <div id="container">
+      <video autoplay="true" id="videoElement"></video>
+    </div>
+    <div class="time">
+      <span class="timer drive-timer" id="times">00:00:00</span>
+    </div>
+    <div class="btn">
+      <input
+        class="drive-timer_startBtn"
+        type="button"
+        value="Start"
+        onclick="toggleBtn1()"
+      />
+      <input class="drive-timer_stopBtn" type="button" value="Stop" />
+    </div>
+    <script>
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+      const timer = document.querySelector(".drive-timer"),
+        startBtn = document.querySelector(".drive-timer_startBtn"),
+        stopBtn = document.querySelector(".drive-timer_stopBtn");
+
+      let TIME = 0;
+      let cron;
+
+      function startButton() {
+        updateTimer();
+        stopButton();
+        cron = setInterval(updateTimer, 1000);
+        timer.classList.add("hide");
+      }
+      function stopButton() {
+        clearInterval(cron);
+        timer.classList.remove("hide");
+      }
+
+      function updateTimer() {
+        const hours = Math.floor(TIME / 3600);
+        const checkMinutes = Math.floor(TIME / 60);
+        const seconds = TIME % 60;
+        const minutes = checkMinutes % 60;
+
+        timer.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes
+        }:${seconds < 10 ? `0${seconds}` : seconds}`;
+        TIME++;
+      }
+      startBtn.addEventListener("click", startButton);
+      stopBtn.addEventListener("click", stopButton);
+
+      $().ready(function () {
+        $(".drive-timer_startBtn").click(function () {
+          Swal.fire({
+            icon: "success",
+            title: "분석을 시작합니다.",
+            text: "화면에 얼굴이 잘 나올 수 있게 조정하십시오.",
+          });
+        });
+      });
+
+      $().ready(function () {
+        $(".drive-timer_stopBtn").click(function () {
+          Swal.fire({
+            icon: "success",
+            title: "분석을 종료합니다.",
+            text: "",
+          });
+        });
+      });
+
+      function toggleBtn1() {
+        // 토글 할 버튼 선택 (btn1)
+        const btn1 = document.getElementById("times");
+
+        // btn1 숨기기 (visibility: hidden)
+        if (times.style.visibility == "hidden") {
+          times.style.visibility = "visible";
+        }
+        // btn` 보이기 (visibility: visible)
+        else {
+          times.style.visibility = "visible";
+        }
+      }
+    </script>
+  </body>
+</html>
